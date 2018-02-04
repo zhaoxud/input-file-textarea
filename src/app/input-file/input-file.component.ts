@@ -66,7 +66,7 @@ export class InputFileComponent implements OnInit {
     console.log(this.newPairs);
     console.log('key', this.newPairs[0].key);
     console.log('value', this.newPairs[0].value);
-    console.log('---------------');
+    console.log('----------------');
     for (const item of this.newPairs) {
       this.items.set(item.key, item.value);
     }
