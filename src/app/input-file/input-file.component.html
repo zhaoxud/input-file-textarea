@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <form>
+      <div *ngFor="let pair of newPairs; let i = index;">
+        <div class="form-group">
+          <label>key:</label>
+          <input type="text" class="form-control" name="inputkey{{i}}" aria-describedby="keyHelp" placeholder="input-key" [(ngModel)]="pair[keyName]">
+          <small id="keyHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label>value：</label>
+          <input type="file" class="form-control" (change)="onFileChange($event, i)" name="inputfile{{i}}" aria-describedby="inputfileHelp" placeholder="请选择文件" [(ngModel)]="file">
+          <small class="form-text text-muted">这个文件将会被读取并上传</small>
+          <textarea name="textarea{{i}}" class="form-control" rows="8" [(ngModel)]="pair[valueName]"></textarea>
+          <a href="javascript:void(0)" (click)="onClear()">清楚文件</a> | <a href="javascript:void(0)" (click)="addPair()">增加一项</a> | <a href="javascript:void(0)" (click)="remove(pair[keyName])">移除本项</a>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="save()">提交</button>
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>
